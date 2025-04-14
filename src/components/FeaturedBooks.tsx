@@ -1,12 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import BookCard, { BookProps } from './BookCard';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { toast } from '@/components/ui/use-toast';
 
-// Sample book data
+// Sample book data with updated realistic images
 const featuredBooks: BookProps[] = [
   {
     id: '1',
@@ -18,7 +19,7 @@ const featuredBooks: BookProps[] = [
     ownerEmail: 'priya.sharma@example.com',
     ownerPhone: '+91 98765 43210',
     status: 'Available',
-    coverUrl: 'https://images.unsplash.com/photo-1626618012641-bfbca5a31239?q=80&w=500&auto=format&fit=crop'
+    coverUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=500&auto=format&fit=crop'
   },
   {
     id: '2',
@@ -30,7 +31,7 @@ const featuredBooks: BookProps[] = [
     ownerEmail: 'arjun.nair@example.com',
     ownerPhone: '+91 87654 32109',
     status: 'Available',
-    coverUrl: 'https://images.unsplash.com/photo-1542086260-ddb62f405816?q=80&w=500&auto=format&fit=crop'
+    coverUrl: 'https://images.unsplash.com/photo-1531928351158-2f736078e0a1?q=80&w=500&auto=format&fit=crop'
   },
   {
     id: '3',
@@ -42,7 +43,7 @@ const featuredBooks: BookProps[] = [
     ownerEmail: 'vikram.malhotra@example.com',
     ownerPhone: '+91 76543 21098',
     status: 'Available',
-    coverUrl: 'https://images.unsplash.com/photo-1598618589929-b1433d05cdf3?q=80&w=500&auto=format&fit=crop'
+    coverUrl: 'https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=500&auto=format&fit=crop'
   },
   {
     id: '4',
@@ -54,18 +55,43 @@ const featuredBooks: BookProps[] = [
     ownerEmail: 'sanjana.reddy@example.com',
     ownerPhone: '+91 65432 10987',
     status: 'Rented',
-    coverUrl: 'https://images.unsplash.com/photo-1613330195097-8b5991f1a1f9?q=80&w=500&auto=format&fit=crop'
+    coverUrl: 'https://images.unsplash.com/photo-1535398089889-dd807df1dfaa?q=80&w=500&auto=format&fit=crop'
   }
 ];
 
 const FeaturedBooks: React.FC = () => {
+  const [wishlist, setWishlist] = useState<string[]>([]);
+
+  const toggleWishlist = (id: string) => {
+    if (wishlist.includes(id)) {
+      setWishlist(wishlist.filter(bookId => bookId !== id));
+      toast({
+        description: "Book removed from your wishlist",
+        variant: "default",
+      });
+    } else {
+      setWishlist([...wishlist, id]);
+      toast({
+        description: "Book added to your wishlist",
+        variant: "default",
+      });
+    }
+  };
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-purple-800">Featured Books</h2>
+          <motion.h2 
+            className="text-3xl font-bold text-purple-800"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Featured Books
+          </motion.h2>
           <Link to="/browse">
-            <Button variant="ghost" className="text-purple hover:text-purple-dark hover:bg-purple/10">
+            <Button variant="ghost" className="text-purple-700 hover:text-purple-900 hover:bg-purple-100/50">
               View All
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -80,8 +106,19 @@ const FeaturedBooks: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="relative"
             >
               <BookCard key={book.id} {...book} />
+              <motion.button
+                className="absolute top-3 right-3 z-10 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition-all duration-300"
+                onClick={() => toggleWishlist(book.id)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Heart 
+                  className={`h-5 w-5 ${wishlist.includes(book.id) ? 'fill-red-500 text-red-500' : 'text-gray-400'}`} 
+                />
+              </motion.button>
             </motion.div>
           ))}
         </div>

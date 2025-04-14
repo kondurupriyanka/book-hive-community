@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Home, BookOpen, User, LogIn, Menu, X } from 'lucide-react';
+import { BookOpen, User, LogIn, Menu, X, BookMarked, Sparkles } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -17,27 +17,27 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2">
-              <BookOpen className="h-6 w-6 text-purple" />
-              <span className="text-xl font-bold text-gray-800">BookHive</span>
+              <div className="relative">
+                <BookMarked className="h-7 w-7 text-purple-600" />
+                <Sparkles className="h-3 w-3 absolute -top-1 -right-1 text-amber-400" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">BookHive</span>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link to="/" className="flex items-center gap-1 text-gray-600 hover:text-purple transition-colors">
-              <Home className="h-4 w-4" />
+            <Link to="/" className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors">
               <span>Home</span>
             </Link>
-            <Link to="/browse" className="flex items-center gap-1 text-gray-600 hover:text-purple transition-colors">
-              <BookOpen className="h-4 w-4" />
+            <Link to="/browse" className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors">
               <span>Browse Books</span>
             </Link>
-            <Link to="/profile" className="flex items-center gap-1 text-gray-600 hover:text-purple transition-colors">
-              <User className="h-4 w-4" />
+            <Link to="/profile" className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors">
               <span>My Profile</span>
             </Link>
             <Link to="/login">
-              <Button variant="outline" className="text-purple border-purple hover:bg-purple hover:text-white">
+              <Button variant="outline" className="text-purple-600 border-purple-300 hover:bg-purple-600 hover:text-white">
                 <LogIn className="h-4 w-4 mr-2" />
                 Login
               </Button>
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Home className="h-5 w-5 text-purple" />
+                <BookOpen className="h-5 w-5 text-purple-600" />
                 <span>Home</span>
               </Link>
               <Link 
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <BookOpen className="h-5 w-5 text-purple" />
+                <BookOpen className="h-5 w-5 text-purple-600" />
                 <span>Browse Books</span>
               </Link>
               <Link 
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <User className="h-5 w-5 text-purple" />
+                <User className="h-5 w-5 text-purple-600" />
                 <span>My Profile</span>
               </Link>
               <Link 
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <LogIn className="h-5 w-5 text-purple" />
+                <LogIn className="h-5 w-5 text-purple-600" />
                 <span>Login</span>
               </Link>
             </div>
