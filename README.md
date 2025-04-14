@@ -9,10 +9,25 @@
 There are several ways of editing your application.
 
 **Use Lovable**
+# Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3d4927f6-77ee-4046-a889-15eeb5281e98) and start prompting.
+1. AI-Powered Chatbot: Integrated Gemini AI chatbot to assist users with book recommendations and queries.
+
+2. Community Engagement: Users can join discussions, share reviews, and connect with fellow readers.
+
+3. Book Discovery: Explore a wide range of books based on genres, popularity, and user reviews.
+
+4. User Profiles: Personalized user profiles to track reading history and preferences.
 
 Changes made via Lovable will be committed automatically to this repo.
+
+# Bonus Features
+
+1. Dark Mode: Toggle between light and dark themes for better user experience.
+
+2.Bookmarking: Users can bookmark their favorite books for quick access.
+
+3.Search Functionality: Search for books by title, author, or genre.
 
 **Use your preferred IDE**
 
@@ -59,7 +74,15 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+  
+# AI Tools Used
 
+1. Lovable: Utilized for rapid development and deployment of the web application.
+  
+3. Gemini AI API: Integrated to provide intelligent chatbot responses and book recommendations.
+  
+5. Chatgpt - Optimized and detailed oriented prompts for website
+   
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/3d4927f6-77ee-4046-a889-15eeb5281e98) and click on Share -> Publish.
