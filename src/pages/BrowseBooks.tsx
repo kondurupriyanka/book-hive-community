@@ -158,7 +158,7 @@ const BrowseBooks: React.FC = () => {
                         <SelectValue placeholder="All Genres" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Genres</SelectItem>
+                        <SelectItem value="all_genres">All Genres</SelectItem>
                         {genres.map(genre => (
                           <SelectItem key={genre} value={genre}>{genre}</SelectItem>
                         ))}
@@ -173,7 +173,7 @@ const BrowseBooks: React.FC = () => {
                         <SelectValue placeholder="All Locations" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Locations</SelectItem>
+                        <SelectItem value="all_locations">All Locations</SelectItem>
                         {locations.map(location => (
                           <SelectItem key={location} value={location}>{location}</SelectItem>
                         ))}
@@ -188,7 +188,7 @@ const BrowseBooks: React.FC = () => {
                         <SelectValue placeholder="All Statuses" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Statuses</SelectItem>
+                        <SelectItem value="all_statuses">All Statuses</SelectItem>
                         {statuses.map(status => (
                           <SelectItem key={status} value={status}>{status}</SelectItem>
                         ))}
