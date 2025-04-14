@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/3d4927f6-77ee-4046-a889-15eeb5281e98
+**URL**: (https://book-hive-community.lovable.app/)
 
 ## How can I edit this code?
 
@@ -25,9 +25,9 @@ Changes made via Lovable will be committed automatically to this repo.
 
 1. Dark Mode: Toggle between light and dark themes for better user experience.
 
-2.Bookmarking: Users can bookmark their favorite books for quick access.
+2. Bookmarking: Users can bookmark their favorite books for quick access.
 
-3.Search Functionality: Search for books by title, author, or genre.
+3. Search Functionality: Search for books by title, author, or genre.
 
 **Use your preferred IDE**
 
