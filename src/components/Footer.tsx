@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Mail, GitHub, Twitter } from 'lucide-react';
+import { BookOpen, Mail, Github, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -18,7 +17,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-600 hover:text-purple transition-colors">
-                <GitHub className="h-5 w-5" />
+                <Github className="h-5 w-5" />
               </a>
               <a href="#" className="text-gray-600 hover:text-purple transition-colors">
                 <Twitter className="h-5 w-5" />
